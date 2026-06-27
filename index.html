@@ -479,6 +479,11 @@
 
 @media(max-width:768px){
 
+    header{
+        position: fixed;
+        width:100%;
+    }
+
     .navbar{
         padding:10px 15px;
         flex-direction:column;
@@ -490,46 +495,25 @@
         height:35px;
     }
 
-    .logo h2{
-        font-size:1.1rem;
-    }
-
     .menu{
-        width:100%;
         display:flex;
-        flex-wrap:nowrap;
-        overflow-x:auto;
-        justify-content:flex-start;
-        gap:20px;
-
-        scrollbar-width:none;
-    }
-
-    .menu::-webkit-scrollbar{
-        display:none;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
     }
 
     .menu a{
         font-size:14px;
         padding:5px;
-        white-space:nowrap;
-        flex-shrink:0;
     }
 
-    .hero-content{
-        margin-top:120px;
+
+    .hero{
+        height:calc(100vh - 140px);
     }
 
     .hero h1{
         font-size:2.7rem;
-    }
-
-    .hero p{
-        font-size:1rem;
-    }
-
-    section{
-        padding:80px 5%;
     }
 }
     </style>
@@ -705,7 +689,6 @@
 
 </html>
 
-Debes reemplazar esa parte por esto:
 
 <div class="copy">
     © 2026 Área de Seguridad Ciudadana - Municipalidad de Casa Grande
