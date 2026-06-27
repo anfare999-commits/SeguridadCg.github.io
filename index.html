@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SeguridadCG | Centro de Monitoreo Casa Grande</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+:root{
+--primary:#071426;
+--secondary:#0E2746;
+--accent:#00e676;
+--accent2:#00c853;
+--light:#f4f7fb;
+--card:rgba(255,255,255,.9);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:
+radial-gradient(circle at top left,#153868 0%,transparent 40%),
+radial-gradient(circle at bottom right,#00c85333 0%,transparent 35%),
+#f3f7fb;
+overflow-x:hidden;
+}
+
+
+/* NAVBAR */
+
+header{
+position:fixed;
+width:100%;
+z-index:999;
+
+background:rgba(5,15,30,.65);
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+
+padding:15px 40px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo h2{
+font-size:1.4rem;
+font-weight:700;
+color:white;
+}
+
+.logo span{
+color:var(--accent);
+}
+
+.menu{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:15px;
+padding:8px;
+position:relative;
+transition:.4s;
+}
+
+.menu a::after{
+content:'';
+position:absolute;
+left:50%;
+bottom:-5px;
+transform:translateX(-50%);
+width:0%;
+height:2px;
+background:var(--accent);
+transition:.4s;
+}
+
+.menu a:hover{
+color:var(--accent);
+}
+
+.menu a:hover::after{
+width:100%;
+}
+
+
+/* HERO */
+
+.hero{
+position:relative;
+height:100vh;
+
+background:
+linear-gradient(
+rgba(5,10,20,.82),
+rgba(5,10,20,.85)),
+url("img/moni.jpeg");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#00e67625;
+
+filter:blur(150px);
+
+border-radius:50%;
+}
+
+.hero-content{
+max-width:900px;
+position:relative;
+z-index:2;
+
+animation:fadeUp 1s ease;
+}
+
+.badge{
+background:rgba(0,230,118,.15);
+
+border:1px solid rgba(0,230,118,.4);
+
+backdrop-filter:blur(10px);
+
+padding:12px 28px;
+
+border-radius:100px;
+
+display:inline-block;
+
+font-size:.9rem;
+
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:5rem;
+font-weight:800;
+line-height:1.1;
+margin-bottom:25px;
+
+text-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.hero p{
+font-size:1.1rem;
+opacity:.9;
+line-height:1.9;
+
+max-width:700px;
+margin:auto;
+}
+
+.btn{
+margin-top:40px;
+display:inline-block;
+
+padding:16px 40px;
+
+border-radius:50px;
+text-decoration:none;
+
+background:
+linear-gradient(
+135deg,
+var(--accent),
+var(--accent2));
+
+color:white;
+font-weight:700;
+
+box-shadow:
+0 15px 35px rgba(0,200,83,.4);
+
+transition:.5s;
+}
+
+.btn:hover{
+transform:
+translateY(-6px)
+scale(1.05);
+
+box-shadow:
+0 20px 45px rgba(0,200,83,.5);
+}
+
+
+/* SECCIONES */
+
+section{
+padding:110px 8%;
+}
+
+.titulo{
+font-size:3rem;
+text-align:center;
+margin-bottom:15px;
+font-weight:800;
+
+color:var(--primary);
+}
+
+.subtitulo{
+text-align:center;
+max-width:700px;
+margin:auto;
+margin-bottom:60px;
+color:#666;
+}
+
+
+/* CARDS */
+
+.cards{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+}
+
+.card{
+
+background:rgba(255,255,255,.75);
+
+backdrop-filter:blur(20px);
+
+padding:35px;
+
+border-radius:25px;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,.8);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.06);
+
+transition:.5s;
+}
+
+.card:hover{
+
+transform:translateY(-15px);
+
+box-shadow:
+0 30px 50px rgba(0,0,0,.12);
+
+border-color:var(--accent);
+}
+
+
+/* ESTADISTICAS */
+
+.estadisticas{
+
+background:
+linear-gradient(
+135deg,
+#061221,
+#0E2746);
+
+color:white;
+}
+
+.estadisticas .titulo{
+color:white;
+}
+
+.stats{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+}
+
+.stat{
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:blur(20px);
+
+padding:35px;
+
+border-radius:25px;
+
+border:1px solid rgba(255,255,255,.05);
+
+transition:.5s;
+}
+
+.stat:hover{
+transform:translateY(-10px);
+}
+
+.stat h3{
+font-size:3.5rem;
+color:var(--accent);
+margin-bottom:10px;
+}
+
+
+/* GALERIA */
+
+.galeria{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:20px;
+}
+
+.galeria img{
+width:100%;
+height:260px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+transition:.5s;
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+
+/* TIMELINE */
+
+.timeline{
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+}
+
+.step{
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+position:relative;
+
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+}
+
+.step::before{
+
+content:'';
+
+position:absolute;
+
+left:50%;
+top:-15px;
+
+width:30px;
+height:30px;
+
+border-radius:50%;
+
+background:var(--accent);
+
+transform:translateX(-50%);
+}
+
+
+/* FOOTER */
+
+footer{
+
+background:#071426;
+color:white;
+
+padding:70px 8%;
+}
+
+.footer-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+}
+
+.copy{
+
+margin-top:40px;
+
+padding-top:25px;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+text-align:center;
+opacity:.7;
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.menu{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:2.7rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+section{
+padding:80px 5%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+                <img src="img/logocg.png">
+                <h2>Seguridad<span>CG</span></h2>
+            </div>
+
+            <nav class="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#funciones">Funciones</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#proceso">Proceso</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ÁREA DE SEGURIDAD CIUDADANA
+            </div>
+
+            <h1>Centro de Monitoreo y Videovigilancia</h1>
+
+            <p>
+                Sistema institucional de la Municipalidad Distrital de Casa Grande para el monitoreo
+                y atención de emergencias en tiempo real.
+            </p>
+
+            <a href="#contacto" class="btn">Reportar Ahora</a>
+
+        </div>
+
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+
+        <h2 class="titulo">Sobre el Sistema</h2>
+
+        <p class="subtitulo">
+            Plataforma oficial de seguridad ciudadana
+        </p>
+
+        <p style="text-align:center;max-width:900px;margin:auto;line-height:1.8;">
+            El sistema SeguridadCG es desarrollado por el Área de Seguridad Ciudadana de la Municipalidad Distrital de
+            Casa Grande para mejorar la seguridad, monitoreo y respuesta ante emergencias.
+        </p>
+
+    </section>
+
+    <!-- FUNCIONES -->
+    <section id="funciones">
+
+        <h2 class="titulo">Funciones Principales</h2>
+
+        <div class="cards">
+
+            <div class="card">📍<h3>Ubicación GPS</h3>
+            </div>
+            <div class="card">📷<h3>Evidencias</h3>
+            </div>
+            <div class="card">🚨<h3>Emergencias</h3>
+            </div>
+            <div class="card">📊<h3>Seguimiento</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ESTADISTICAS -->
+    <section class="estadisticas" id="estadisticas">
+
+        <h2 class="titulo">Gestión en Tiempo Real</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Monitoreo</p>
+            </div>
+            <div class="stat">
+                <h3>150+</h3>
+                <p>Cámaras</p>
+            </div>
+            <div class="stat">
+                <h3>4000+</h3>
+                <p>Reportes</p>
+            </div>
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Eficiencia</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso">
+
+        <h2 class="titulo">Proceso</h2>
+
+        <div class="timeline">
+
+            <div class="step">1 Registro</div>
+            <div class="step">2 Recepción</div>
+            <div class="step">3 Evaluación</div>
+            <div class="step">4 Respuesta</div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+
+        <h2 class="titulo">Contacto</h2>
+
+        <div class="cards">
+
+            <div class="card">📍 Casa Grande</div>
+            <div class="card">📞 Serenazgo</div>
+            <div class="card">✉ seguridadcg@gob.pe</div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h3>SeguridadCG</h3>
+                <p>Plataforma del Área de Seguridad Ciudadana.</p>
+            </div>
+
+            <div>
+                <h3>Municipalidad</h3>
+                <p>Casa Grande - Gerencia de Seguridad Ciudadana</p>
+            </div>
+
+            <div>
+                <h3>Misión</h3>
+                <p>Brindar seguridad y respuesta inmediata.</p>
+            </div>
+
+        </div>
+
+        <div class="copy">
+    © 2026 Área de Seguridad Ciudadana - Municipalidad de Casa Grande
+</div>
+
+</footer>
+
+</body>
+</html>
+
+Debes reemplazar esa parte por esto:
+
+<div class="copy">
+    © 2026 Área de Seguridad Ciudadana - Municipalidad de Casa Grande
+</div>
+
+</footer>
+
+
+<!-- AUDIO DE FONDO -->
+<audio id="musicaFondo" loop>
+    <source src="audio/audio3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SONIDOS UI -->
+<audio id="hover-sound" src="audio/clik1.mp3" preload="auto"></audio>
+<audio id="click-sound" src="audio/clik2.mp3" preload="auto"></audio>
+
+<script>
+
+// ===== AUDIO ELEMENTS =====
+const musica = document.getElementById("musicaFondo");
+const hoverSound = document.getElementById("hover-sound");
+const clickSound = document.getElementById("click-sound");
+
+
+// ===== MÚSICA DE FONDO =====
+document.addEventListener("click", () => {
+    if (musica.paused) {
+        musica.volume = 0.2;
+        musica.play().catch(err => console.log("Música error:", err));
+    }
+}, { once: true });
+
+
+// ===== CLICK SOUND =====
+document.addEventListener("click", (e) => {
+
+    const target = e.target;
+
+    if (
+        target.tagName === "A" ||
+        target.classList.contains("btn") ||
+        target.classList.contains("card")
+    ) {
+        clickSound.currentTime = 0;
+        clickSound.volume = 0.8;
+
+        clickSound.play().catch(err => {
+            console.log("Click error:", err);
+        });
+    }
+
+});
+
+
+// ===== HOVER SOUND =====
+document.addEventListener("mouseover", (e) => {
+
+    const target = e.target;
+
+    if (
+        target.tagName === "A" ||
+        target.classList.contains("btn") ||
+        target.classList.contains("card")
+    ) {
+        hoverSound.currentTime = 0;
+        hoverSound.volume = 0.4;
+
+        hoverSound.play().catch(err => {
+            console.log("Hover error:", err);
+        });
+    }
+
+});
+
+</script>
+
+</body>
+</html>
