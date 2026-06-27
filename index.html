@@ -479,15 +479,8 @@
 
 @media(max-width:768px){
 
-    header{
-        backdrop-filter: blur(10px);
-    }
-
     .navbar{
-        padding: 8px 15px; /* antes: 15px 40px */
-        flex-direction: row; /* evita que se vaya abajo */
-        justify-content: space-between;
-        align-items: center;
+        padding: 10px 15px;
     }
 
     .logo img{
@@ -495,31 +488,24 @@
         height: 35px;
     }
 
-    .logo h2{
-        font-size: 1.1rem;
-    }
-
     .menu{
         gap: 10px;
         flex-wrap: wrap;
-        justify-content: flex-end;
+        justify-content: center;
     }
 
     .menu a{
         font-size: 13px;
-        padding: 4px;
+        padding: 5px;
+    }
+
+    /* SOLUCIÓN */
+    .hero{
+        padding-top: 180px; /* ajusta entre 160–220px */
     }
 
     .hero h1{
         font-size: 2.7rem;
-    }
-
-    .hero p{
-        font-size: 1rem;
-    }
-
-    section{
-        padding: 80px 5%;
     }
 }
     </style>
